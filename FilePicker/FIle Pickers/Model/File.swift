@@ -21,4 +21,3 @@ class File: UIDocument {
         self.data = data
     }
 }
-

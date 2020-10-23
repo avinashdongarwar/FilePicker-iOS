@@ -7,6 +7,7 @@
 
 import Foundation
 import UniformTypeIdentifiers
+import MobileCoreServices
 
 enum SupportedFileType: Int {
     case jpg
@@ -24,6 +25,40 @@ enum SupportedFileType: Int {
     case ppt
     case pptx
 
+    var documentType: String {
+        switch self {
+        case .jpg:
+            return kUTTypeJPEG as String
+        case .jpg2000:
+            return kUTTypeJPEG2000 as String
+        case .gif:
+            return kUTTypeGIF as String
+        case .png:
+            return kUTTypePNG as String
+        case .tif:
+            return kUTTypeTIFF as String
+        case .rtf:
+            return kUTTypeRTF as String
+        case .txt:
+            return kUTTypePlainText as String
+        case .pdf:
+            return kUTTypePDF as String
+        case .doc:
+            return "com.microsoft.word.doc"
+        case .docx:
+            return "org.openxmlformats.wordprocessingml.document"
+        case .xls:
+            return "com.microsoft.excel.xls"
+        case .xlsx:
+            return "org.openxmlformats.spreadsheetml.sheet"
+        case .ppt:
+            return "com.microsoft.powerpoint.​ppt"
+        case .pptx:
+            return "org.openxmlformats.presentationml.presentation"
+        }
+    }
+
+    @available(iOS 14.0, *)
     var utTypeForFile: UTType {
         switch self {
         case .jpg:
@@ -60,6 +95,7 @@ enum SupportedFileType: Int {
     static let all = [jpg, jpg2000, gif, png, tif, rtf, txt, pdf, doc, docx, xls, xlsx, ppt, pptx]
 }
 
+@available(iOS 14.0, *)
 extension UTType {
 
     static var jpg2000: UTType {

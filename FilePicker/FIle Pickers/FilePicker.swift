@@ -24,8 +24,13 @@ open class FilePicker: NSObject {
 
     public func present(from sourceView: UIView) {
         guard let delegate = delegate else { fatalError() }
-        filepickerController = UIDocumentPickerViewController(forOpeningContentTypes:
-                                                                delegate.supportedFileType.map({ $0.utTypeForFile }))
+
+        if #available(iOS 14.0, *) {
+            filepickerController = UIDocumentPickerViewController(forOpeningContentTypes:
+                                                                    delegate.supportedFileTypes.map({ $0.utTypeForFile }))
+        } else {
+            filepickerController = UIDocumentPickerViewController(documentTypes: delegate.supportedFileTypes.map({ $0.documentType }), in: .import)
+        }
         guard let filepickerController = filepickerController else { fatalError() }
         filepickerController.delegate = self
         filepickerController.allowsMultipleSelection = delegate.canSelectMultiple
@@ -62,3 +67,9 @@ extension FilePicker: UIDocumentPickerDelegate{
 
 extension FilePicker: UINavigationControllerDelegate {}
 
+extension File {
+    var mimeType: String? {
+        guard let fileType = fileType else { return nil }
+        return UTTypeCopyPreferredTagWithClass(fileType as CFString, kUTTagClassMIMEType)?.takeRetainedValue() as String?
+    }
+}

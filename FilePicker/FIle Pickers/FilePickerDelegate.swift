@@ -12,7 +12,7 @@ protocol FilePickerDelegate: class {
     func didCancelledPicker()
     var canSelectMultiple: Bool { get }
     var sizeLimitInMB: Int { get }
-    var supportedFileType: [SupportedFileType] { get }
+    var supportedFileTypes: [SupportedFileType] { get }
 }
 
 extension FilePickerDelegate {
@@ -24,7 +24,7 @@ extension FilePickerDelegate {
         return 10
     }
 
-    var supportedFileType: [SupportedFileType] {
+    var supportedFileTypes: [SupportedFileType] {
         return SupportedFileType.all
     }
 }
