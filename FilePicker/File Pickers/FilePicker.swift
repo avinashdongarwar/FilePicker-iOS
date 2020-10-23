@@ -13,7 +13,6 @@ open class FilePicker: NSObject {
     private weak var presentationController: UIViewController?
     private weak var delegate: FilePickerDelegate?
 
-    private var folderURL: URL?
     private var files = [File]()
 
     init(presentationController: UIViewController, delegate: FilePickerDelegate) {
@@ -22,7 +21,7 @@ open class FilePicker: NSObject {
         self.delegate = delegate
     }
 
-    public func present(from sourceView: UIView) {
+    public func present() {
         guard let delegate = delegate else { fatalError() }
 
         if #available(iOS 14.0, *) {
