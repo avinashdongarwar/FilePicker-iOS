@@ -17,8 +17,8 @@ class ViewController: UIViewController, FilePickerDelegate {
         filePicker = FilePicker(presentationController: self, delegate: self)
     }
 
-    func didPickFiles(files: File?) {
-
+    func didPickFile(file: File?) {
+        print(String(describing: file?.data))
     }
 
     func didCancelledPicker() {

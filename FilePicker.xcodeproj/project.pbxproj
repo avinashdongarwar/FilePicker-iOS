@@ -67,7 +67,7 @@
 				5A2B33EE253FFE38000D523F /* AppDelegate.swift */,
 				5A2B33F0253FFE38000D523F /* SceneDelegate.swift */,
 				5A2B33F2253FFE38000D523F /* ViewController.swift */,
-				5A2B3403253FFE43000D523F /* FIle Pickers */,
+				5A2B3403253FFE43000D523F /* File Pickers */,
 				5A2B33F4253FFE38000D523F /* Main.storyboard */,
 				5A2B33F7253FFE39000D523F /* Assets.xcassets */,
 				5A2B33F9253FFE39000D523F /* LaunchScreen.storyboard */,
@@ -76,7 +76,7 @@
 			path = FilePicker;
 			sourceTree = "<group>";
 		};
-		5A2B3403253FFE43000D523F /* FIle Pickers */ = {
+		5A2B3403253FFE43000D523F /* File Pickers */ = {
 			isa = PBXGroup;
 			children = (
 				5A2B344E25400302000D523F /* Model */,
@@ -84,7 +84,7 @@
 				5A2B344A2540026B000D523F /* FilePickerDelegate.swift */,
 				5A2B345325408BE8000D523F /* FilePicker.swift */,
 			);
-			path = "FIle Pickers";
+			path = "File Pickers";
 			sourceTree = "<group>";
 		};
 		5A2B344E25400302000D523F /* Model */ = {

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FilePickerDelegate: class {
-    func didPickFiles(files: File?)
+    func didPickFile(file: File?)
     func didCancelledPicker()
     var canSelectMultiple: Bool { get }
     var sizeLimitInMB: Int { get }

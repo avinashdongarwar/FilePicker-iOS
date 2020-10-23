@@ -11,6 +11,16 @@ class File: UIDocument {
 
     var data: Data?
 
+    override init(fileURL url: URL) {
+
+        super.init(fileURL: url)
+        do {
+            self.data = try Data(contentsOf: url)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
     override func contents(forType typeName: String) throws -> Any {
         guard let data = data else { return Data() }
         return try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: true)

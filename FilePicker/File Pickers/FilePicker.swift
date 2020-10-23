@@ -46,7 +46,7 @@ extension FilePicker: UIDocumentPickerDelegate{
             return
         }
         let file = documentFromURL(pickedURL: url)
-        delegate?.didPickFiles(files: file)
+        delegate?.didPickFile(file: file)
     }
 
     public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
